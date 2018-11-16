@@ -1,7 +1,11 @@
+# frozen_string_literal: true
+
+require_relative "../lib/download_strategies/github_private_release_download_strategy"
+
 class Anu < Formula
   desc "GoCardless Platform toolkit"
   homepage "https://github.com/gocardless/anu"
-  url "https://github.com/gocardless/anu/releases/download/v4.1.1/anu_4.1.1_darwin_amd64.tar.gz", :using => GitHubPrivateRepositoryReleaseDownloadStrategy
+  url "https://github.com/gocardless/anu/releases/download/v4.1.1/anu_4.1.1_darwin_amd64.tar.gz", :using => DownloadStrategies::GithubPrivateReleaseDownloadStrategy
   version "4.1.1"
   sha256 "06bdc4ef6b4223e91c0568df1a9ba515328a6b39178c2451bc9a609239eaba5f"
 
