@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
-# TODO hacky experiment
-require "bundler"
-Bundler.load
-require "octokit"
 
 module DownloadStrategies
   class GithubPrivateReleaseDownloadStrategy < AbstractFileDownloadStrategy
     def fetch
+      # TODO hacky experiment
+      require "bundler"
+      Bundler.load
+      require "octokit"
+
       client = Octokit::Client.new(access_token: ENV.fetch("HOMEBREW_GITHUB_API_TOKEN"))
 
       asset_url = client.releases("gocardless/#{name}").
