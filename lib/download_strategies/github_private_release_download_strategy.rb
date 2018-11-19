@@ -7,9 +7,7 @@ require "octokit"
 
 module DownloadStrategies
   class GithubPrivateReleaseDownloadStrategy < AbstractFileDownloadStrategy
-
     def fetch
-      # TODO: hack until I can figure out homebrew DI
       client = Octokit::Client.new(access_token: ENV.fetch("HOMEBREW_GITHUB_API_TOKEN"))
 
       asset_url = client.releases("gocardless/#{name}").
